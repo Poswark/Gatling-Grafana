@@ -63,10 +63,13 @@ gatling,request=Ecoturismo,simulation=altosimulation,status=ko
 gatling,request=Ecoturismo,simulation=altosimulation,status=ok </pre>
 
 
-** Grafana dashboard for testing **
+**Grafana dashboard for testing**
 
 ![Alt text](images/gatlingdb1.png?raw=true "Dashboard1")
 
 ![Alt text](images/gatlingdb2.png?raw=true "Dashboard2")
 
 
+**download grafana dashboard**
+
+https://grafana.com/grafana/dashboards/15046
