@@ -15,22 +15,38 @@ we put the configuration files (galing.conf , influxdb.conf)
 
 **we generate an example test** 
 
-<pre> [root@gatling bin]# ./gatling.sh 
-GATLING_HOME is set to /opt/gatling-charts-highcharts-bundle-3.6.1
-Choose a simulation number:
-     [0] RecordedSimulation
-     [1] altoSimulation
-     [2] computerdatabase.BasicSimulation
-     [3] computerdatabase.advanced.AdvancedSimulationStep01
-     [4] computerdatabase.advanced.AdvancedSimulationStep02
-     [5] computerdatabase.advanced.AdvancedSimulationStep03
-     [6] computerdatabase.advanced.AdvancedSimulationStep04
-     [7] computerdatabase.advanced.AdvancedSimulationStep05
-     [8] gatlingdemostore.DemostoreSimulation
-1
-Select run description (optional)
-altoariari
-Simulation altoSimulation started... </pre>
+Start 
+´´´ 
+[root@gatling bin]# docker-compose up -d 
+´´´ 
+
+<pre> [root@gatling bin]# docker-compose exec -T gatling /opt/gatling/bin/gatling.sh -rm local -sf /opt/gatling/user-files/ -s demostore -rf /opt/gatling/results/
+Simulation demostore started...
+
+
+================================================================================
+---- Global Information --------------------------------------------------------
+> request count                                       1800 (OK=1800   KO=0     )
+> min response time                                    172 (OK=172    KO=-     )
+> max response time                                   2626 (OK=2626   KO=-     )
+> mean response time                                  1156 (OK=1156   KO=-     )
+> std deviation                                       1057 (OK=1057   KO=-     )
+> response time 50th percentile                        298 (OK=298    KO=-     )
+> response time 75th percentile                       2385 (OK=2385   KO=-     )
+> response time 95th percentile                       2483 (OK=2483   KO=-     )
+> response time 99th percentile                       2508 (OK=2508   KO=-     )
+> mean requests/sec                                   9.73 (OK=9.73   KO=-     )
+---- Response Time Distribution ------------------------------------------------
+> t < 800 ms                                          1048 ( 58%)
+> t ≥ 800 ms <br> t < 1200 ms                            0 (  0%)
+> t ≥ 1200 ms                                          752 ( 42%)
+> failed                                                 0 (  0%)
+================================================================================
+
+Reports generated in 0s.
+Please open the following file: file:///opt/gatling/results/demostore-20220902031902287/index.html
+
+</pre>
 
 **Gatling example**
 
@@ -66,8 +82,6 @@ gatling,request=Ecoturismo,simulation=altosimulation,status=ok </pre>
 **Grafana dashboard for testing**
 
 ![Alt text](images/gatlingdb1.png?raw=true "Dashboard1")
-
-![Alt text](images/gatlingdb2.png?raw=true "Dashboard2")
 
 
 **download grafana dashboard**

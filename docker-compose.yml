@@ -1,0 +1,53 @@
+version: '3'
+services:
+
+  gatling:
+    build: ./gatling/
+    tty: true
+    #command: docker exec gatling /opt/gatling/bin/gatling.sh -sf /opt/gatling/user-files/simulations/ -s demostore
+    container_name: gatling
+    volumes:
+      - ./gatling/user-files/simulations:/opt/gatling/user-files/simulations
+      - ./results:/opt/gatling/results/
+    networks:
+      - gatling_network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    volumes:
+      - grafana-data:/var/lib/grafana
+    environment:
+      - TZ=America/Bogota    
+      - GF_USERS_DEFAULT_THEME=light
+    networks:
+      - gatling_network
+
+
+  influxdb:
+    image: influxdb:1.8
+    container_name: influxdb
+    ports:
+      - '8086:8086'
+      - '2003:2003'
+    volumes:
+      - influxdb-storage:/var/lib/influxdb
+      - ./influxdb.conf:/etc/influxdb/influxdb.conf
+    environment:
+      - INFLUXDB_GRAPHITE_ENABLED=true
+      - INFLUXDB_USERNAME=admin
+      - INFLUXDB_PASSWORD=admin
+      - INFLUXDB_DB=gatlingdb
+    networks:
+      - gatling_network
+
+networks:
+  gatling_network:
+  
+volumes:
+  influxdb-storage:
+  grafana-data:
+
