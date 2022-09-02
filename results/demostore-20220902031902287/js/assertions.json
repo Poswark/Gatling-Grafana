@@ -1,0 +1,10 @@
+{
+  "simulation": "demostore",
+  "simulationId": "demostore-20220902031902287",
+  "start": 1662088743524,
+  "description": "",
+  "scenarios": ["demostore"],
+  "assertions": [
+
+  ]
+}
