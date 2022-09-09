@@ -54,9 +54,10 @@ Please open the following file: file:///opt/gatling/results/demostore-2022090203
 
 We verify that the data has been injected into the influxdb database
 
-<pre> [root@gatling bin]# influx
-Connected to http://localhost:8086 version 1.8.9
-InfluxDB shell version: 1.8.9
+<pre> [root@gatling ]# docker exec -it  influxdb bash 
+root@e0a5814f43cc:/# influx
+Connected to http://localhost:8086 version 1.8.10
+InfluxDB shell version: 1.8.10
 > show databases 
 name: databases
 name
@@ -68,15 +69,15 @@ Using database gatlingdb
 > show series
 key
 ---
-gatling,request=Contacto,simulation=altosimulation,status=all
-gatling,request=Contacto,simulation=altosimulation,status=ko
-gatling,request=Contacto,simulation=altosimulation,status=ok
-gatling,request=Contacto_Redirect_1,simulation=altosimulation,status=all
-gatling,request=Contacto_Redirect_1,simulation=altosimulation,status=ko
-gatling,request=Contacto_Redirect_1,simulation=altosimulation,status=ok
-gatling,request=Ecoturismo,simulation=altosimulation,status=all
-gatling,request=Ecoturismo,simulation=altosimulation,status=ko
-gatling,request=Ecoturismo,simulation=altosimulation,status=ok </pre>
+gatling,request=Home,simulation=demostore,status=all
+gatling,request=Home,simulation=demostore,status=ko
+gatling,request=Home,simulation=demostore,status=ok
+gatling,request=allRequests,simulation=demostore,status=all
+gatling,request=allRequests,simulation=demostore,status=ko
+gatling,request=allRequests,simulation=demostore,status=ok
+gatling.users,request=allUsers,simulation=demostore
+gatling.users,request=demostore,simulation=demostore
+ </pre>
 
 
 **Grafana dashboard for testing**
