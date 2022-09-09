@@ -2,9 +2,8 @@ version: '3'
 services:
 
   gatling:
-    build: ./gatling/
+    image: 010203901/gatling:1
     tty: true
-    #command: docker exec gatling /opt/gatling/bin/gatling.sh -sf /opt/gatling/user-files/simulations/ -s demostore
     container_name: gatling
     volumes:
       - ./gatling/user-files/simulations:/opt/gatling/user-files/simulations
@@ -13,7 +12,7 @@ services:
       - gatling_network
 
   grafana:
-    image: grafana/grafana:latest
+    image: 010203901/grafana-gatling:1 
     container_name: grafana
     ports:
       - 3000:3000
