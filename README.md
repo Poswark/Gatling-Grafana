@@ -19,9 +19,10 @@ we put the configuration files (galing.conf , influxdb.conf)
 **we generate an example test** 
 
 Start 
-´´´ 
+
+<pre>
 [root@gatling bin]# docker-compose up -d 
-´´´ 
+</pre>
 
 <pre> [root@gatling bin]# docker-compose exec -T gatling /opt/gatling/bin/gatling.sh -rm local -sf /opt/gatling/user-files/ -s demostore -rf /opt/gatling/results/
 Simulation demostore started...
