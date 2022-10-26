@@ -2,7 +2,7 @@ version: '3'
 services:
 
   gatling:
-    image: 010203901/gatling:1
+    image: poswark/gatling:1
     tty: true
     container_name: gatling
     volumes:
@@ -12,7 +12,7 @@ services:
       - gatling_network
 
   grafana:
-    image: 010203901/grafana-gatling:1 
+    image: poswark/grafana-gatling:1 
     container_name: grafana
     ports:
       - 3000:3000
