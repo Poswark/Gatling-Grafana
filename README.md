@@ -1,6 +1,6 @@
 # Gatling statistics with Grafana
 
- [![Docker pulls](https://img.shields.io/docker/pulls/010203901/gatling)](https://hub.docker.com/r/010203901/gatling)
+ [![Docker pulls](https://img.shields.io/docker/pulls/poswark/gatling?style=for-the-badge)](https://hub.docker.com/r/poswark/gatling)
 
 
 Gatling is an open-source load testing tool for web applications, designed for DevOps and Continuous Integration. 
